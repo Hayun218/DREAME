@@ -32,6 +32,9 @@ let package = Package(
                 .landscapeLeft,
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
             ],
+            capabilities: [
+                .camera(purposeString: "In order to recognize user's eye blink, this app requires the permission to camera.")
+            ],
             appCategory: .healthcareFitness
         )
     ],
