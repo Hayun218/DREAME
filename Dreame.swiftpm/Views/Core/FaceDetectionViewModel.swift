@@ -2,7 +2,6 @@ import AVFoundation
 import UIKit
 import Vision
 import AVFoundation
-import Vision
 
 class FaceDetectionViewModel: NSObject, ObservableObject {
   @Published var points: [CGPoint] = []
@@ -16,6 +15,7 @@ class FaceDetectionViewModel: NSObject, ObservableObject {
     super.init()
     videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "VideoQueue"))
   }
+  
   
   
   func mainOn() {
@@ -91,7 +91,6 @@ extension FaceDetectionViewModel: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     let area = calculateArea(points: points)
     
-    // TODO: check threshold again
     return area < 0.002
   }
 }

@@ -20,7 +20,7 @@ let package = Package(
             teamIdentifier: "SL6KBD5WZW",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .smiley),
+            appIcon: .asset("AppIcon"),
             accentColor: .asset("AccentColor"),
             supportedDeviceFamilies: [
                 .pad,
@@ -35,13 +35,16 @@ let package = Package(
             capabilities: [
                 .camera(purposeString: "In order to recognize user's eye blink, this app requires the permission to camera.")
             ],
-            appCategory: .healthcareFitness
+            appCategory: .lifestyle
         )
     ],
     targets: [
         .executableTarget(
             name: "AppModule",
-            path: "."
+            path: ".",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )
